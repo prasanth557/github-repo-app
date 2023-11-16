@@ -17,7 +17,7 @@ The project aims to implement a small web app that lists the most starred GitHub
 ## Requirements
 
 ### Technologies Used
-- Angular (v16+)
+- Angular
 - Bootstrap
 - HTML
 - CSS
@@ -65,7 +65,7 @@ The project structure includes the following components:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/prasanth557/github-repo-app.git
 
 2. Navigate to the project folder:
 
