@@ -48,12 +48,12 @@
               </button>
         </div>
         <div class="col-12 col-s-12 card-footer text-muted">
-            <p> Submitted on<span>{{repo.updated_at | date:'medium'}}</span>  by <span class="user-name">{{repo.owner.login}}</span></p>
+            <p> Submitted on <span>{{repo.updated_at | date:'medium'}}</span>  by <span class="user-name">{{repo.owner.login}}</span></p>
         </div>
     </div>
     <br>
 </div>
-<button type="button" class="btn btn-default" style="border-style:ridge; margin-top: 20px; border-color:aqua" (click)="loadMore((currentPage+1))">Load More</button>
+<button type="button" class="btn btn-default" style="border-style:ridge; margin-top: 20px; border-color:aqua" (click)="loadMore((currentPage+1),true)">Load More</button>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <app-star-rating *ngIf="selectedRepo" [repo]="selectedRepo" (selectedRating)="selectedRating($event)" ></app-star-rating>

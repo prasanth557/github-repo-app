@@ -21,43 +21,33 @@ export class RepoListComponent implements OnInit {
   constructor(private githubSevice: GithubServiceTsService) {}
 
   ngOnInit(): void {
-    this.loadRepos(this.currentPage);
+    this.loadRepos(this.currentPage,false);
     this.converDateToDays()
   }
 
-  loadRepos(pageNumber:number) {
+  loadRepos(pageNumber:number,loadMoreDataCheck:boolean |undefined) {
     this.spinner= true;
     this.githubSevice
       .getMostStarredRepos(pageNumber)
       .subscribe({
         next:(data)=> {
-          this.repos = this.repos.concat(data.items);
+        //  this.repos = this.repos.concat(data.items);
+        this.repos = loadMoreDataCheck != true ? data.items : this.repos.concat(data.items);
         if(this.repos){
           this.spinner = false;
         }
         }, error: err => console.log(err.timestamp, err.message)
       });
-      //   console.log('Loadrepos data', data);
-      //   this.repos = this.repos.concat(data.items);
-      //   if(this.repos){
-      //     this.spinner = false;
-      //   }
-      // },
-      // (error)=>{
-      //   this.error = "Error- Not able to load data"
-      //   this.spinner = false;
-      // }});
       
   }
 
-  loadMore(pageNumber: number) {
-    //this.currentPage++;
+  // Append more repos data for the existing repos
+  loadMore(pageNumber: number,loadMoreDataCheck?: boolean) {
     this.currentPage = pageNumber;
-    this.loadRepos(pageNumber);
+    this.loadRepos(pageNumber,loadMoreDataCheck);
   }
 
   openRepoModal(repo: any): void {
-    //this.display = 'block';
     this.selectedRepo = repo;
   }
 
@@ -85,10 +75,9 @@ export class RepoListComponent implements OnInit {
   }
 
   selectedRating(rating:number): void {
-    // Add your logic to rate the repository
-    console.log(`Repolist -Rated ${rating} stars for ${this.selectedRepo.name}`);
+    //console.log(`Repolist -Rated ${rating} stars for ${this.selectedRepo.name}`);
     this.selectedRepo.userRating = rating;
     this.currentRate = rating;
-    // this.closeModal(); // Close the modal after rating
+    this.repos.find(x => x.id)
   }
 }
