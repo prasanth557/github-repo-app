@@ -1,0 +1,24 @@
+<!-- src/app/components/repo-modal/repo-modal.component.html -->
+<div class="modal fade" id="repoModal" tabindex="-1" role="dialog" aria-labelledby="repoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="repoModalLabel">{{ repo?.name || 'Repository Name' }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ repo?.description || 'No description available' }}</p>
+        <p>Stars: {{ repo?.stargazers_count || 0 }}, Issues: {{ repo?.open_issues_count || 0 }}</p>
+        <p>Owner: {{ repo?.owner?.login || 'Unknown Owner' }}</p>
+        <img [src]="repo?.owner?.avatar_url" alt="Owner Avatar">
+      </div>
+      <div class="modal-footer">
+        <p>Rate this repo:</p>
+        <input type="number" [(ngModel)]="userRating" min="1" max="5">
+        <button type="button" class="btn btn-primary" (click)="rateRepository()">Rate</button>
+      </div>
+    </div>
+  </div>
+</div>
