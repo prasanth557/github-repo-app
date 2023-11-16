@@ -9,29 +9,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FeatureModule } from "./feature/feature.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FeatureModule } from './feature/feature.module';
 import { LoginComponent } from './login/login/login.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        RepoListComponent,
-        RepoModalComponentComponent,
-        HeaderComponent,
-        LoginComponent
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ModalModule.forRoot(),
-        NgbModule,
-        FeatureModule
-    ],
-    schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [
+    AppComponent,
+    RepoListComponent,
+    RepoModalComponentComponent,
+    HeaderComponent,
+    LoginComponent,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ModalModule.forRoot(),
+    NgbModule,
+    FeatureModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

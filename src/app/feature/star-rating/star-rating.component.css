@@ -3,20 +3,24 @@ p {
     letter-spacing: 1px;
     font-size: 0.7vw;
 }
-.margin-right{
+
+.margin-right {
     margin-right: 10px;
 }
-.user-name{
+
+.user-name {
     text-decoration: none;
     color: #008CBA;
-    
+
 }
-.card-text{
+
+.card-text {
     text-indent: 10px;
     height: 2.7vw;
     width: 30vw;
     overflow: auto;
 }
+
 i {
     position: relative;
     display: inline-block;
@@ -32,11 +36,7 @@ i {
     top: 0;
     left: 0;
 }
-/* button{
-    height: 1.6vw;
-    width: 5vw; 
-    font-size: 0.7vw;
-} */
+
 .image {
     width: 9vw;
     height: 9vw;

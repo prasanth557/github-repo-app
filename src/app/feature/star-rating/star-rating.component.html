@@ -1,40 +1,39 @@
 <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-     
-      <div class="modal-header">
-        <h5 class="modal-title" style="color: darkgrey;" id="exampleModalLabel">{{ repo?.name || 'Repository Name' }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h5 class="modal-title" style="color: darkgrey;" id="exampleModalLabel">{{ repo?.name || 'Repository Name' }}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="col-12 col-s-12 card flex-row flex-wrap">
+        <div class="col-4 col-sm-4">
+          <img class="image" [src]="repo?.owner?.avatar_url" alt="">
+        </div>
+        <div class="col-8 col-sm-8">
+          <p>Rate this repo:</p>
+          <!-- <input type="number" [(ngModel)]="userRating" min="1" max="5"> -->
+          <ngb-rating [(rate)]="currentRate" [max]="5"></ngb-rating>
+          <hr />
+          <pre>Rate: <b>{{currentRate}}</b></pre>
+          <button type="button" class="btn btn-primary" (click)="rateRepository()">Submit</button>
+          <p style="padding: 3px; color: green;">{{submitSucess}}</p>
+        </div>
+      </div>
+      <div class="col-6 col-s-6 card-block p-4">
+        <p class="card-text">{{repo?.description}}</p>
+        <button type="button" class="btn btn-primary margin-right">
+          Stars: <span class="badge badge-primary"> {{ repo?.stargazers_count }}</span>
+        </button>
+        <button type="button" class="btn btn-primary margin-right">
+          Issues: <span class="badge badge-secondary">{{ repo?.open_issues_count }}</span>
         </button>
       </div>
-      <div class="modal-body">
-          <div class="col-12 col-s-12 card flex-row flex-wrap">
-              <div class="col-4 col-sm-4">
-                  <img class="image" [src]="repo?.owner?.avatar_url" alt="">
-              </div>
-              <div class="col-8 col-sm-8">
-                  <p>Rate this repo:</p>
-                  <!-- <input type="number" [(ngModel)]="userRating" min="1" max="5"> -->
-                  <ngb-rating [(rate)]="currentRate" [max]="5"></ngb-rating>
-                  <hr />
-                  <pre>Rate: <b>{{currentRate}}</b></pre>
-                  <button type="button" class="btn btn-primary" (click)="rateRepository()">Submit</button>
-                  <p style="padding: 3px; color: green;">{{submitSucess}}</p>
-              </div>
-          </div>
-          <div class="col-6 col-s-6 card-block p-4">
-              <p class="card-text">{{repo?.description}}</p>
-              <button type="button" class="btn btn-primary margin-right">
-                  Stars:  <span class="badge badge-primary"> {{ repo?.stargazers_count }}</span>
-                </button>
-                <button type="button" class="btn btn-primary margin-right">
-                  Issues:  <span class="badge badge-secondary">{{ repo?.open_issues_count }}</span>
-                </button>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>
   </div>
+</div>

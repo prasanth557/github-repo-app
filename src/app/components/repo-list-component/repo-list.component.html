@@ -1,60 +1,65 @@
 <app-header></app-header>
 <div class="pagination">
-    <div class="d-flex align-items-center" *ngIf="spinner">
-        <strong>Loading...</strong>
-        <div class="spinner-border text-warning" role="status" aria-hidden="true" style="align-items: center;"></div>
-      </div>
-      <div *ngIf="error">
-    <p>{{error}}</p>
-      </div>
-    
-    <nav aria-label="Page navigation example align-items-center" style="cursor: pointer;">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" (click)="loadMore(currentPage-1)" aria-label="Previous">
-              <span aria-hidden="true" >«</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" (click)="loadMore(1)">1</a></li>
-          <li class="page-item"><a class="page-link" (click)="loadMore(2)">2</a></li>
-          <li class="page-item"><a class="page-link" (click)="loadMore(3)">3</a></li>
-          <li class="page-item">
-            <a class="page-link" (click)="loadMore(currentPage+1)" aria-label="Next">
-              <span aria-hidden="true">»</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-</div>
-<div class="container-fluid" >
-
-    <div class="col-12 col-s-12 card flex-row flex-wrap" *ngFor="let repo of repos" >
-        <div class="col-2 col-s-2 card-header border-0">
-            <img class="image" [src]="repo.owner.avatar_url" alt="">
-        </div>
-        <div class="col-10 col-s-10 card-block p-2">
-            <h2 class="card-title" (click)="openRepoModal(repo)" data-toggle="modal" data-target="#exampleModal">{{repo.name}}</h2>
-            <ngb-rating [(rate)]="repo.userRating" [max]="5" [readonly]="readonly">
-            </ngb-rating>
-            <p class="card-text">{{repo.description}}</p>
-            <button type="button" class="btn btn-secondary margin-right">
-                Stars:  <span class="badge badge-secondary"> {{ repo.stargazers_count }}</span>
-              </button>
-              <button type="button" class="btn btn-secondary margin-right">
-                Issues:  <span class="badge badge-secondary">{{ repo.open_issues_count }}</span>
-              </button>
-              <button type="button" class="btn btn-primary margin-right" (click)="openRepoModal(repo)" data-toggle="modal" data-target="#exampleModal">
-                Give Rating
-              </button>
-        </div>
-        <div class="col-12 col-s-12 card-footer text-muted">
-            <p> Submitted on <span>{{repo.updated_at | date:'medium'}}</span>  by <span class="user-name">{{repo.owner.login}}</span></p>
-        </div>
-    </div>
-    <br>
-</div>
-<button type="button" class="btn btn-default" style="border-style:ridge; margin-top: 20px; border-color:aqua" (click)="loadMore((currentPage+1),true)">Load More</button>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <app-star-rating *ngIf="selectedRepo" [repo]="selectedRepo" (selectedRating)="selectedRating($event)" ></app-star-rating>
+  <div class="d-flex align-items-center" *ngIf="spinner">
+    <strong>Loading...</strong>
+    <div class="spinner-border text-warning" role="status" aria-hidden="true" style="align-items: center;"></div>
   </div>
+  <div *ngIf="error">
+    <p>{{error}}</p>
+  </div>
+
+  <nav aria-label="Page navigation example align-items-center" style="cursor: pointer;">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="loadMore(currentPage-1)" aria-label="Previous">
+          <span aria-hidden="true">«</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="loadMore(1)">1</a></li>
+      <li class="page-item"><a class="page-link" (click)="loadMore(2)">2</a></li>
+      <li class="page-item"><a class="page-link" (click)="loadMore(3)">3</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="loadMore(currentPage+1)" aria-label="Next">
+          <span aria-hidden="true">»</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="container-fluid">
+  <div class="col-12 col-s-12 card flex-row flex-wrap" *ngFor="let repo of repos">
+    <div class="col-2 col-s-2 card-header border-0">
+      <img class="image" [src]="repo.owner.avatar_url" alt="">
+    </div>
+    <div class="col-10 col-s-10 card-block p-2">
+      <h2 class="card-title" (click)="openRepoModal(repo)" data-toggle="modal" data-target="#exampleModal">{{repo.name}}
+      </h2>
+      <ngb-rating [(rate)]="repo.userRating" [max]="5" [readonly]="readonly">
+      </ngb-rating>
+      <p class="card-text">{{repo.description}}</p>
+      <button type="button" class="btn btn-secondary margin-right">
+        Stars: <span class="badge badge-secondary"> {{ repo.stargazers_count }}</span>
+      </button>
+      <button type="button" class="btn btn-secondary margin-right">
+        Issues: <span class="badge badge-secondary">{{ repo.open_issues_count }}</span>
+      </button>
+      <button type="button" class="btn btn-primary margin-right" (click)="openRepoModal(repo)" data-toggle="modal"
+        data-target="#exampleModal">
+        Give Rating
+      </button>
+    </div>
+    <div class="col-12 col-s-12 card-footer text-muted">
+      <p> Submitted on <span>{{repo.updated_at | date:'medium'}}</span> by <span
+          class="user-name">{{repo.owner.login}}</span></p>
+    </div>
+  </div>
+  <br>
+</div>
+<button type="button" class="btn btn-default" style="border-style:ridge; margin-top: 20px; border-color:aqua"
+  (click)="loadMore((currentPage+1),true)">Load More</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <app-star-rating *ngIf="selectedRepo" [repo]="selectedRepo"
+    (selectedRating)="selectedRating($event)"></app-star-rating>
+</div>
