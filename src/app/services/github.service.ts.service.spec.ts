@@ -1,27 +1,42 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { GithubServiceTsService } from './github.service.ts.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule  } from '@angular/common/http';
 
 describe('GithubServiceTsService', () => {
   let service: GithubServiceTsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule,HttpClientModule],
+    });
     service = TestBed.inject(GithubServiceTsService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it('should have getData function', () => {
+        const service: GithubServiceTsService = TestBed.inject(GithubServiceTsService);
+        expect(service.getMostStarredRepos).toBeTruthy();
+       });
 });
 
-var http: HttpClient;
+// describe('myService', () => {
 
-// describe("calservice",()=>{
-//   it("Should multiply 2 nums",()=>{
-// const calc = new GithubServiceTsService(http);
-// const res = calc.multiply(3,5);
-//  expect(res).toBe(15);
-//   });
+//   beforeEach(() => TestBed.configureTestingModule({
+//     imports: [HttpClientTestingModule,HttpClientModule,HttpClient], 
+//     providers: [GithubServiceTsService,HttpClient]
+//   }));
+
+//    it('should be created', () => {
+//     const service: GithubServiceTsService = TestBed.get(HttpClient);
+//     expect(service).toBeTruthy();
+//    });
+
+//    it('should have getData function', () => {
+//     const service: GithubServiceTsService = TestBed.get(HttpClient);
+//     expect(service.getMostStarredRepos).toBeTruthy();
+//    });
+
 // });

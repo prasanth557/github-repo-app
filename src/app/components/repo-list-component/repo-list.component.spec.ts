@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RepoListComponent } from './repo-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from '../header/header.component';
 
 describe('RepoListComponent', () => {
   let component: RepoListComponent;
@@ -8,7 +11,8 @@ describe('RepoListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RepoListComponent]
+      imports:[HttpClientTestingModule,HttpClientModule],
+      declarations: [RepoListComponent,HeaderComponent]
     });
     fixture = TestBed.createComponent(RepoListComponent);
     component = fixture.componentInstance;
