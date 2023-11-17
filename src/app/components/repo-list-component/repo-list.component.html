@@ -1,13 +1,5 @@
 <app-header></app-header>
 <div class="pagination">
-  <div class="d-flex align-items-center" *ngIf="spinner">
-    <strong>Loading...</strong>
-    <div class="spinner-border text-warning" role="status" aria-hidden="true" style="align-items: center;"></div>
-  </div>
-  <div *ngIf="error">
-    <p>{{error}}</p>
-  </div>
-
   <nav aria-label="Page navigation example align-items-center" style="cursor: pointer;">
     <ul class="pagination">
       <li class="page-item">
@@ -25,6 +17,13 @@
       </li>
     </ul>
   </nav>
+  <div class="d-flex align-items-center" *ngIf="spinner">
+    <strong>Loading...</strong>
+    <div class="spinner-border text-warning" role="status" aria-hidden="true" style="align-items: center;"></div>
+  </div>
+  <div *ngIf="error">
+    <p>{{error}}</p>
+  </div>
 </div>
 <div class="container-fluid">
   <div class="col-12 col-s-12 card flex-row flex-wrap" *ngFor="let repo of repos">

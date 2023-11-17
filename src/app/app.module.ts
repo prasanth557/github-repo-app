@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RepoListComponent } from './components/repo-list-component/repo-list.component';
-import { RepoModalComponentComponent } from './components/repo-modal-component/repo-modal-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +16,6 @@ import { LoginComponent } from './login/login/login.component';
   declarations: [
     AppComponent,
     RepoListComponent,
-    RepoModalComponentComponent,
     HeaderComponent,
     LoginComponent,
   ],
