@@ -22,21 +22,21 @@ describe('GithubServiceTsService', () => {
        });
 });
 
-// describe('myService', () => {
+describe('myService', () => {
 
-//   beforeEach(() => TestBed.configureTestingModule({
-//     imports: [HttpClientTestingModule,HttpClientModule,HttpClient], 
-//     providers: [GithubServiceTsService,HttpClient]
-//   }));
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule,HttpClientModule], 
+    providers: [GithubServiceTsService]
+  }));
 
-//    it('should be created', () => {
-//     const service: GithubServiceTsService = TestBed.get(HttpClient);
-//     expect(service).toBeTruthy();
-//    });
+   it('should be created', () => {
+    const service: GithubServiceTsService = TestBed.inject(GithubServiceTsService);
+    expect(service).toBeTruthy();
+   });
 
-//    it('should have getData function', () => {
-//     const service: GithubServiceTsService = TestBed.get(HttpClient);
-//     expect(service.getMostStarredRepos).toBeTruthy();
-//    });
+   it('should have getData function', () => {
+    const service: GithubServiceTsService = TestBed.inject(GithubServiceTsService);
+    expect(service.getMostStarredRepos).toBeTruthy();
+   });
 
-// });
+});
