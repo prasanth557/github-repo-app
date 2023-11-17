@@ -111,4 +111,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 # Screenshots of application
-#![Alt text](repoapp_image_1.png,repoapp_image_2.png,repoapp_image_3.png)
+
+![Login page](https://github.com/prasanth557/github-repo-app/blob/main/readme_img/repoapp_image1.png)
+![Home page](https://github.com/prasanth557/github-repo-app/blob/main/readme_img/repoapp_image2.png)
+![Modal popup](https://github.com/prasanth557/github-repo-app/blob/main/readme_img/repoapp_image3.png)
